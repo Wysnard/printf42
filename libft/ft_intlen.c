@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_intlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vlay <marvin@42.fr>                        +#+  +:+       +#+        */
+/*   By: vlay <vlay@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/10 16:04:31 by vlay              #+#    #+#             */
-/*   Updated: 2017/11/10 16:04:47 by vlay             ###   ########.fr       */
+/*   Updated: 2017/11/29 16:39:31 by vlay             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_intlen(int nb, int base)
+int	ft_intlen(intmax_t nb, int base)
 {
 	int	i;
 

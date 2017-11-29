@@ -26,15 +26,22 @@ int	ft_print_int(va_list *ap, t_file *file)
 {
 	intmax_t	nbr;
 	char		*str;
+	intmax_t	i;
 
+	i = 0;
 	nbr = ft_get_type(ap, file);
-	str = ft_imtoa_base(nbr, "0123456789");
-	if (file->plus && nbr > -1)
-	{
-		ft_putchar('+');
-		file->ct++;
-	}
+	str = (ft_strchr(file->flags, '+') && nbr > -1) ?
+	ft_strjoinfree(ft_strdup("+"), ft_imtoa_base(nbr, "0123456789"))
+	: ft_imtoa_base(nbr, "0123456789");
+	i = (file->nb > ft_strlen(str)) ? file->nb - ft_strlen(str) : 0;
+	if (!ft_strchr(file->flags, '-') && i)
+		(ft_strchr(file->flags, '0')) ?
+		ft_putzero(str, &i) : ft_putnchar(' ', i, 1);
 	ft_putstr_fd(str, 1);
+	if (ft_strchr(file->flags, '-') && i)
+		ft_putnchar(' ', i, 1);
+	file->ct += (i > 0) ? i : 0;
 	file->ct += ft_strlen(str);
+	free(str);
 	return (1);
 }

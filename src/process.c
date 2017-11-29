@@ -8,6 +8,8 @@ void	ft_conversion(char **start, t_file *file, va_list *ap)
 		ft_print_str(ap, file);
 	else if (**start == 'd' || **start == 'i')
 		ft_print_int(ap, file);
+	else if (**start == 'u')
+		ft_print_unsigned(ap, file);
 	(*start)++;
 }
 

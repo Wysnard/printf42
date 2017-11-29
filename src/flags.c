@@ -15,14 +15,14 @@ void	ft_flags(char **start, t_file *file)
 			ft_strcat(file->flags, f);
 		(*start)++;
 	}
-	file->nb = ft_atoi(*start);
+	file->nb = ft_atoim(*start);
 	while (ft_isdigit(**start))
 		(*start)++;
 	if (**start == '.')
 	{
-		file->precision = ft_atoi(++(*start));
+		file->precision = ft_atoim(++(*start));
 		while (ft_isdigit(**start))
 			(*start)++;
 	}
-	printf("flags = %s| nb = %llu | precision = %d\n", file->flags, file->nb, file->precision);
+	printf("flags = %s| nb = %ju | precision = %jd\n", file->flags, file->nb, file->precision);
 }

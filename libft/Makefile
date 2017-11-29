@@ -6,7 +6,7 @@
 #    By: vlay <vlay@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/13 15:14:46 by vlay              #+#    #+#              #
-#    Updated: 2017/11/27 12:36:34 by vlay             ###   ########.fr        #
+#    Updated: 2017/11/29 16:33:42 by vlay             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,7 +42,7 @@ SRCFILE = ft_atoi.c ft_bzero.c ft_isalnum.c ft_isalpha.c \
 		ft_power.c ft_print_bits.c \
 		ft_strndup.c ft_strrev.c \
 		ft_strtrijoin.c ft_swap.c \
-		ft_utoa.c
+		ft_utoa.c ft_putnchar.c
 
 SRC = $(SRCFILE)
 

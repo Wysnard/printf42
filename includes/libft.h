@@ -6,7 +6,7 @@
 /*   By: vlay <vlay@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/10 17:06:53 by vlay              #+#    #+#             */
-/*   Updated: 2017/11/27 21:28:53 by vlay             ###   ########.fr       */
+/*   Updated: 2017/11/29 19:00:21 by vlay             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -138,14 +138,18 @@ char				*ft_strndup(const char *s, size_t n);
 int					ft_power(int nb, int power);
 char				*ft_convert_base(char *nbr, char *base_from, char *base_to);
 void				ft_strrev(char *s);
-char				*ft_utoa(unsigned int nbr, char const *base_chr);
+char				*ft_utoa(uintmax_t nbr, char const *base_chr);
 char				*ft_dtoa(double nbr, size_t	size);
 void				ft_print_bits(unsigned long long int octet, size_t size);
 char				*ft_strtrijoin(char *s1, char *s2, char *s3);
-int					ft_intlen(int nb, int base);
+int					ft_intlen(intmax_t nb, int base);
 void				ft_swap(void **s1, void **s2);
 size_t				ft_sqr(int	nb);
 char				*ft_imtoa_base(intmax_t nbr, char *base_to);
 char				*ft_strnrchr(const char *s, int c, size_t n);
+intmax_t		ft_atoim(const char *nptr);
+char				*ft_strpbrk(const char *s, const char *accept);
+void				ft_putnchar(char c, int n, int fd);
+char				*ft_strjoinfree(char *s1, char *s2);
 
 #endif

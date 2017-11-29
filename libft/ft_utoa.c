@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_utoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vlay <marvin@42.fr>                        +#+  +:+       +#+        */
+/*   By: vlay <vlay@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/10 16:08:59 by vlay              #+#    #+#             */
-/*   Updated: 2017/11/10 16:09:24 by vlay             ###   ########.fr       */
+/*   Updated: 2017/11/29 19:00:12 by vlay             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,10 @@ static	int	ft_count(unsigned int nbr, size_t base)
 	}
 }
 
-char		*ft_utoa(unsigned int nbr, char const *base_chr)
+char		*ft_utoa(uintmax_t nbr, char const *base_chr)
 {
 	char			*buf;
-	int				i;
+	size_t				i;
 	size_t			base;
 
 	base = ft_strlen(base_chr);

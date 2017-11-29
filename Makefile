@@ -32,7 +32,9 @@ LIBFT_FILE = ft_atoi.c ft_bzero.c ft_isalnum.c ft_isalpha.c \
 		ft_power.c ft_print_bits.c \
 		ft_strndup.c ft_strrev.c \
 		ft_strtrijoin.c ft_swap.c \
-		ft_utoa.c ft_imtoa.c ft_strnrchr.c
+		ft_utoa.c ft_imtoa.c ft_strnrchr.c \
+		ft_atoim.c ft_strpbrk.c ft_putnchar.c \
+		ft_strjoinfree.c
 
 LIBFT = $(LIBFT_FILE:%.c=$(LIBFT_PATH)%.c)
 
@@ -45,7 +47,9 @@ SRC_FILE = printf.c \
 						print_char.c \
 						print_str.c \
 						print_int.c \
-						flags.c
+						print_unsigned.c \
+						flags.c \
+						zero.c
 
 SRC = $(SRC_FILE:%.c=$(SRC_PATH)%.c)
 

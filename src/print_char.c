@@ -2,15 +2,14 @@
 
 int	ft_print_char(va_list *ap, t_file *file)
 {
-	char	flags[10];
-	int		i;
+	size_t		i;
 
 	i = 0;
-	ft_strcpy(flags, "#0-+ ");
-	if (!ft_strchr(flags, '-'))
-		while (i < file->nb)
-			i++;
+	if (!ft_strchr(file->flags, '-') && file->nb)
+		ft_putnchar(' ', (i = file->nb - 1), 1);
 	ft_putchar(va_arg(*ap, int));
-	file->ct++;
+	if (ft_strchr(file->flags, '-') && file->nb)
+		ft_putnchar(' ', (i = file->nb - 1), 1);
+	file->ct += i + 1;
 	return (file->ct);
 }
