@@ -10,6 +10,10 @@ void	ft_conversion(char **start, t_file *file, va_list *ap)
 		ft_print_int(ap, file);
 	else if (**start == 'u')
 		ft_print_unsigned(ap, file);
+	else if (**start == 'x')
+		ft_print_hexa(ap, file);
+	else if (**start == 'X')
+		ft_print_Hexa(ap, file);
 	(*start)++;
 }
 

@@ -1,19 +1,31 @@
 #include "printf.h"
 
-void	ft_putzero(const char *str, intmax_t *i)
+void	ft_putzero(char **str, size_t *i)
 {
 	char	*zero;
-	size_t	j;
-	size_t	len;
+	char	*tmp;
+	char	save[3];
 
-	j = 0;
-	len = ft_strlen(str);
-	if (!(zero = ft_strnew(len + *i)))
-		exit (EXIT_FAILURE);
-	if (*str == '+')
-		zero[j++] = *str++;
-	while ((*i - len) > 0 && j < (*i - len))
-		zero[j++] = '0';
-	ft_strcpy(&zero[j], str);
+	if (!(zero = ft_strnew(*i)))
+		exit(EXIT_FAILURE);
+	ft_memset(zero, '0', *i);
+	zero[*i] = '\0';
+	tmp = zero;
+	if (ft_strnequ(*str, "0x", 3) || ft_strnequ(*str, "0X", 3))
+	{
+		ft_strcpy(save, "0x");
+		ft_strcpy(*str, (*str) + 2);
+		zero = ft_strjoin(save, tmp);
+		free(tmp);
+	}
+	else if (!ft_isdigit(**str))
+	{
+		save[0] = **str;
+		save[1] = '\0';
+		ft_strcpy(*str, (*str) + 1);
+		zero = ft_strjoin(save, tmp);
+		free(tmp);
+	}
+	*str = ft_strjoinfree(zero, *str);
 	*i = 0;
 }

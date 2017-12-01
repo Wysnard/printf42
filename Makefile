@@ -48,6 +48,7 @@ SRC_FILE = printf.c \
 						print_str.c \
 						print_int.c \
 						print_unsigned.c \
+						print_hexa.c \
 						flags.c \
 						zero.c
 
