@@ -32,7 +32,8 @@ int	ft_print_unsigned(va_list *ap, t_file *file)
 	ft_nbprec(&str, file->precision - ft_strlen(str));
 	i = (file->nb > ft_strlen(str)) ? file->nb - ft_strlen(str) : 0;
 	if (ft_strchr(file->flags, '0'))
-		ft_putzero(&str, &i, "");
+		(file->precision >= 0) ?
+		ft_putnchar(' ', i - file->nb, 1) : ft_putzero(&str, &i, "", file);
 	if (!ft_strchr(file->flags, '-') && i)
 		ft_putnchar(' ', i, 1);
 	ft_putstr_fd(str, 1);

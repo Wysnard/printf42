@@ -12,7 +12,8 @@ int	ft_print_hexa(va_list *ap, t_file *file)
 		str = ft_strjoinfree(ft_strdup("0x"), str);
 	i = (file->nb > ft_strlen(str)) ? file->nb - ft_strlen(str) : 0;
 	if (ft_strchr(file->flags, '0'))
-		ft_putzero(&str, &i, "0x");
+		(file->precision >= 0) ?
+		ft_putnchar(' ', i - file->nb, 1) : ft_putzero(&str, &i, "0x", file);
 	if (!ft_strchr(file->flags, '-') && i)
 		ft_putnchar(' ', i, 1);
 	ft_putstr_fd(str, 1);
@@ -35,7 +36,8 @@ int	ft_print_Hexa(va_list *ap, t_file *file)
 		str = ft_strjoinfree(ft_strdup("0X"), str);
 	i = (file->nb > ft_strlen(str)) ? file->nb - ft_strlen(str) : 0;
 	if (ft_strchr(file->flags, '0'))
-		ft_putzero(&str, &i, "0X");
+		(file->precision >= 0) ?
+		ft_putnchar(' ', i - file->nb, 1) : ft_putzero(&str, &i, "0X", file);
 	if (!ft_strchr(file->flags, '-') && i)
 		ft_putnchar(' ', i, 1);
 	ft_putstr_fd(str, 1);

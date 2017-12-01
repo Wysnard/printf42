@@ -38,7 +38,7 @@ int	ft_print_int(va_list *ap, t_file *file)
 	i = (file->nb > ft_strlen(str)) ? file->nb - ft_strlen(str) : 0;
 	if (ft_strchr(file->flags, '0'))
 		(file->precision >= 0) ?
-		ft_putnchar(' ', i - file->nb, 1) : ft_putzero(&str, &i, "");
+		ft_putnchar(' ', i - file->nb, 1) : ft_putzero(&str, &i, "", file);
 	if (!ft_strchr(file->flags, '-') && i)
 		ft_putnchar(' ', i, 1);
 	ft_putstr_fd(str, 1);

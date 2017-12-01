@@ -24,7 +24,7 @@ int	ft_printf(const char *arg1, ...);
 void	ft_init_flags(t_file *file);
 int		ft_process(char **start, t_file *file, va_list *ap);
 void	ft_flags(char **start, t_file *file);
-void	ft_putzero(char **str, size_t *i, char *prefix);
+void	ft_putzero(char **str, size_t *i, char *prefix, t_file *file);
 void	ft_nbprec(char **str, intmax_t i);
 
 int	ft_print_char(va_list *ap, t_file *file);
