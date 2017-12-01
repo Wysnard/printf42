@@ -49,8 +49,10 @@ SRC_FILE = printf.c \
 						print_int.c \
 						print_unsigned.c \
 						print_hexa.c \
+						print_octal.c \
 						flags.c \
-						zero.c
+						zero.c \
+						nbprec.c
 
 SRC = $(SRC_FILE:%.c=$(SRC_PATH)%.c)
 

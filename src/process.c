@@ -14,6 +14,8 @@ void	ft_conversion(char **start, t_file *file, va_list *ap)
 		ft_print_hexa(ap, file);
 	else if (**start == 'X')
 		ft_print_Hexa(ap, file);
+	else if (**start == 'o')
+		ft_print_octal(ap, file);
 	(*start)++;
 }
 

@@ -1,6 +1,6 @@
 #include "printf.h"
 
-static intmax_t	ft_get_type(va_list *ap, t_file *file)
+static intmax_t	ft_get_type_int(va_list *ap, t_file *file)
 {
 	intmax_t	nbr;
 
@@ -29,15 +29,16 @@ int	ft_print_int(va_list *ap, t_file *file)
 	size_t	i;
 
 	i = 0;
-	nbr = ft_get_type(ap, file);
-	str = ft_imtoa_base(nbr, "0123456789");
+	str = ft_imtoa_base((nbr = ft_get_type_int(ap, file)), "0123456789");
+	ft_nbprec(&str, file->precision - ft_intlen(nbr, 10));
 	if (ft_strchr(file->flags, '+') && nbr >= 0)
 		str = ft_strjoinfree(ft_strdup("+"), str);
 	else if (ft_strchr(file->flags, ' ') && nbr >= 0)
 		str = ft_strjoinfree(ft_strdup(" "), str);
 	i = (file->nb > ft_strlen(str)) ? file->nb - ft_strlen(str) : 0;
 	if (ft_strchr(file->flags, '0'))
-		ft_putzero(&str, &i);
+		(file->precision >= 0) ?
+		ft_putnchar(' ', i - file->nb, 1) : ft_putzero(&str, &i, "");
 	if (!ft_strchr(file->flags, '-') && i)
 		ft_putnchar(' ', i, 1);
 	ft_putstr_fd(str, 1);

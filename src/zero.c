@@ -1,6 +1,6 @@
 #include "printf.h"
 
-void	ft_putzero(char **str, size_t *i)
+void	ft_putzero(char **str, size_t *i, char *prefix)
 {
 	char	*zero;
 	char	*tmp;
@@ -11,10 +11,11 @@ void	ft_putzero(char **str, size_t *i)
 	ft_memset(zero, '0', *i);
 	zero[*i] = '\0';
 	tmp = zero;
-	if (ft_strnequ(*str, "0x", 3) || ft_strnequ(*str, "0X", 3))
+	if (**str == '0')
 	{
-		ft_strcpy(save, "0x");
-		ft_strcpy(*str, (*str) + 2);
+		ft_strcpy(save, prefix);
+		(ft_isdigit((*str)[1])) ?
+		ft_strcpy(*str, &(*str)[1]) : ft_strcpy(*str, &(*str)[2]);
 		zero = ft_strjoin(save, tmp);
 		free(tmp);
 	}
