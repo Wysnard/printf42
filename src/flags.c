@@ -1,6 +1,27 @@
 #include "printf.h"
 #include <stdio.h>
 
+static	void	ft_convert(char **start, t_file *file, char *flags)
+{
+	(void)flags;
+	if (**start == 'z')
+		file->convert = z;
+	else if (**start == 'j')
+		file->convert = j;
+	else if ((*start)[1] == 'l' && (*start)[2] == 'l')
+		file->convert = ll;
+	else if (**start == 'l')
+		file->convert = l;
+	else if (**start == h)
+		file->convert = h;
+	else if ((*start)[1] == 'h' && (*start)[2] == 'h')
+		file->convert = hh;
+	// if (ft_strchr(flags, **start))
+	// 	file->convert = none;
+	while (ft_strchr(flags, **start))
+		(*start)++;
+}
+
 void	ft_flags(char **start, t_file *file)
 {
 	char	flags[10];
@@ -24,5 +45,7 @@ void	ft_flags(char **start, t_file *file)
 		while (ft_isdigit(**start))
 			(*start)++;
 	}
-	printf("flags = %s| nb = %ju | precision = %jd\n", file->flags, file->nb, file->precision);
+	ft_strcpy(flags, "hljz");
+	ft_convert(start, file, flags);
+	// printf("flags = %s| nb = %ju | precision = %jd | convert = %d\n", file->flags, file->nb, file->precision, file->convert);
 }

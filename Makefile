@@ -34,7 +34,9 @@ LIBFT_FILE = ft_atoi.c ft_bzero.c ft_isalnum.c ft_isalpha.c \
 		ft_strtrijoin.c ft_swap.c \
 		ft_utoa.c ft_imtoa.c ft_strnrchr.c \
 		ft_atoim.c ft_strpbrk.c ft_putnchar.c \
-		ft_strjoinfree.c
+		ft_strjoinfree.c ft_putwchar.c ft_putwstr.c \
+		ft_wcslen.c ft_wcscpy.c ft_wcsncpy.c \
+		ft_wcsnew.c ft_wcsdup.c ft_wcsndup.c
 
 LIBFT = $(LIBFT_FILE:%.c=$(LIBFT_PATH)%.c)
 

@@ -6,7 +6,7 @@
 /*   By: vlay <vlay@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/10 17:06:53 by vlay              #+#    #+#             */
-/*   Updated: 2017/11/29 19:00:21 by vlay             ###   ########.fr       */
+/*   Updated: 2017/12/02 21:25:59 by vlay             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@
 # include <string.h>
 # include <stdlib.h>
 # include <stdarg.h>
-#include <wchar.h>
-#include <stdint.h>
+# include <wchar.h>
+# include <stdint.h>
 # include "printf.h"
 
 typedef struct		s_list
@@ -151,5 +151,15 @@ intmax_t		ft_atoim(const char *nptr);
 char				*ft_strpbrk(const char *s, const char *accept);
 void				ft_putnchar(char c, int n, int fd);
 char				*ft_strjoinfree(char *s1, char *s2);
+void				ft_putwchar_fd(wchar_t chr, int fd);
+void				ft_putwchar(wchar_t chr);
+void				ft_putwstr_fd(wchar_t *wstr, int fd);
+void				ft_putwstr(wchar_t *wstr);
+size_t			ft_wcslen(wchar_t	*wstr);
+wchar_t			*ft_wcscpy(wchar_t *dest, const wchar_t *src);
+wchar_t 		*ft_wcsncpy(wchar_t *dest, const wchar_t *src, size_t n);
+wchar_t			*ft_wcsnew(size_t len);
+wchar_t			*ft_wcsdup(wchar_t	*wcs);
+wchar_t			*ft_wcsndup(wchar_t	*wcs, size_t n);
 
 #endif

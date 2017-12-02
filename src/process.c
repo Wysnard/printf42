@@ -5,7 +5,8 @@ void	ft_conversion(char **start, t_file *file, va_list *ap)
 	if (**start == 'c')
 		ft_print_char(ap, file);
 	else if (**start == 's')
-		ft_print_str(ap, file);
+		(file->convert == l) ?
+		ft_print_wstr(ap, file) : ft_print_str(ap, file);
 	else if (**start == 'd' || **start == 'i')
 		ft_print_int(ap, file);
 	else if (**start == 'u')
@@ -16,8 +17,12 @@ void	ft_conversion(char **start, t_file *file, va_list *ap)
 		ft_print_Hexa(ap, file);
 	else if (**start == 'o')
 		ft_print_octal(ap, file);
+	else if (**start == 'p')
+		ft_print_pointer(ap, file);
 	else if (**start == '%')
-		ft_putchar_fd('%', 1);
+		ft_print_perc(ap, file);
+	else
+		return ;
 	(*start)++;
 }
 

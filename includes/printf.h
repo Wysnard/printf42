@@ -34,6 +34,9 @@ int	ft_print_unsigned(va_list *ap, t_file *file);
 int	ft_print_hexa(va_list *ap, t_file *file);
 int	ft_print_Hexa(va_list *ap, t_file *file);
 int	ft_print_octal(va_list *ap, t_file *file);
+int	ft_print_pointer(va_list *ap, t_file *file);
+int	ft_print_wstr(va_list *ap, t_file *file);
+int	ft_print_perc(va_list *ap, t_file *file);
 
 uintmax_t	ft_get_type_u(va_list *ap, t_file *file);
 
