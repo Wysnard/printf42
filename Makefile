@@ -36,7 +36,8 @@ LIBFT_FILE = ft_atoi.c ft_bzero.c ft_isalnum.c ft_isalpha.c \
 		ft_atoim.c ft_strpbrk.c ft_putnchar.c \
 		ft_strjoinfree.c ft_putwchar.c ft_putwstr.c \
 		ft_wcslen.c ft_wcscpy.c ft_wcsncpy.c \
-		ft_wcsnew.c ft_wcsdup.c ft_wcsndup.c
+		ft_wcsnew.c ft_wcsdup.c ft_wcsndup.c \
+		ft_wcsjoinfree.c
 
 LIBFT = $(LIBFT_FILE:%.c=$(LIBFT_PATH)%.c)
 
@@ -53,7 +54,8 @@ SRC_FILE = printf.c \
 						print_octal.c \
 						flags.c \
 						zero.c \
-						nbprec.c
+						nbprec.c \
+						space.c
 
 SRC = $(SRC_FILE:%.c=$(SRC_PATH)%.c)
 

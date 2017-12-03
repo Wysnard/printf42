@@ -1,5 +1,15 @@
 #include "printf.h"
 
+size_t	ft_wstrlen(wchar_t	*wstr)
+{
+	size_t	i;
+
+	i = 0;
+	while (*wstr)
+		i += ft_wcharlen(*wstr++);
+	return (i);
+}
+
 int	ft_print_wstr(va_list *ap, t_file *file)
 {
 	wchar_t	*wstr;
@@ -16,11 +26,10 @@ int	ft_print_wstr(va_list *ap, t_file *file)
 	i = (file->nb > ft_wcslen(printed)) ? file->nb - ft_wcslen(printed) : 0;
 	if (!ft_strchr(file->flags, '-') && i)
 		ft_putnchar(' ', i, 1);
-	ft_putwstr_fd(printed, 1);
 	if (ft_strchr(file->flags, '-') && i)
-		ft_putnchar(' ', i, 1);
-	file->ct += (i > 0) ? i : 0;
-	file->ct += ft_wcslen(printed);
+		ft_putwspace(&printed, &i);
+	ft_putwstr_fd(printed, 1);
+	file->ct += ft_wstrlen(printed) + i;
 	free(printed);
 	return (1);
 }
@@ -41,11 +50,10 @@ int	ft_print_str(va_list *ap, t_file *file)
 	i = (file->nb > ft_strlen(printed)) ? file->nb - ft_strlen(printed) : 0;
 	if (!ft_strchr(file->flags, '-') && i)
 		ft_putnchar(' ', i, 1);
-	ft_putstr_fd(printed, 1);
 	if (ft_strchr(file->flags, '-') && i)
-		ft_putnchar(' ', i, 1);
-	file->ct += (i > 0) ? i : 0;
-	file->ct += ft_strlen(printed);
+		ft_putspace(&printed, &i);
+	ft_putstr_fd(printed, 1);
+	file->ct += ft_strlen(printed) + i;
 	free(printed);
 	return (1);
 }

@@ -3,26 +3,23 @@
 
 void	ft_conversion(char **start, t_file *file, va_list *ap)
 {
-	if (**start == 'U' || **start == 'C' || **start == 'S' || **start == 'D'
-	|| **start == 'O')
-	{
+	if (**start == 'C' || **start == 'S' || **start == 'D'
+	|| **start == 'U' || **start == 'O')
 		file->convert = l;
-		**start = ft_tolower(**start);
-	}
-	if (**start == 'c')
+	if (**start == 'c' || **start == 'C')
 		ft_print_char(ap, file);
-	else if (**start == 's')
+	else if (**start == 's' || **start == 'S')
 		(file->convert == l) ?
 		ft_print_wstr(ap, file) : ft_print_str(ap, file);
-	else if (**start == 'd' || **start == 'i')
+	else if (**start == 'd' || **start == 'i' || **start == 'D')
 		ft_print_int(ap, file);
-	else if (**start == 'u')
+	else if (**start == 'u' || **start == 'U')
 		ft_print_unsigned(ap, file);
 	else if (**start == 'x')
 		ft_print_hexa(ap, file);
 	else if (**start == 'X')
 		ft_print_Hexa(ap, file);
-	else if (**start == 'o')
+	else if (**start == 'o' || **start == 'O')
 		ft_print_octal(ap, file);
 	else if (**start == 'p')
 		ft_print_pointer(ap, file);
@@ -35,6 +32,8 @@ void	ft_conversion(char **start, t_file *file, va_list *ap)
 
 int	ft_process(char **start, t_file *file, va_list *ap)
 {
+	if (**start == '\0')
+		return (0);
 	ft_init_flags(file);
 	// printf("point de depart = %s|\n", *start);
 	ft_flags(start, file);

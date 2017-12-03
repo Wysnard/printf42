@@ -6,7 +6,7 @@
 /*   By: vlay <vlay@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/10 17:06:53 by vlay              #+#    #+#             */
-/*   Updated: 2017/12/03 13:09:11 by vlay             ###   ########.fr       */
+/*   Updated: 2017/12/03 21:59:35 by vlay             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -162,5 +162,6 @@ wchar_t 		*ft_wcsncpy(wchar_t *dest, const wchar_t *src, size_t n);
 wchar_t			*ft_wcsnew(size_t len);
 wchar_t			*ft_wcsdup(wchar_t	*wcs);
 wchar_t			*ft_wcsndup(wchar_t	*wcs, size_t n);
+wchar_t			*ft_wcsjoinfree(wchar_t *w1, wchar_t *w2);
 
 #endif

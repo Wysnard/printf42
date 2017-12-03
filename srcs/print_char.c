@@ -1,18 +1,37 @@
 #include "printf.h"
 
+size_t	ft_wcharlen(wchar_t	wc)
+{
+	size_t	i;
+
+	i = 0;
+	if (wc <= 0x7F)
+		i++;
+	else if (wc <= 0x7FF)
+		i += 2;
+	else if (wc <= 0xFFFF)
+		i += 3;
+	else if (wc <= 0x1FFFFF)
+		i += 4;
+	else if (wc <= 0x3FFFFFF)
+		i += 5;
+	return (i);
+}
+
 int	ft_print_char(va_list *ap, t_file *file)
 {
 	size_t		i;
+	wchar_t		wc;
 
 	i = 0;
 	if (!ft_strchr(file->flags, '-') && file->nb)
 		ft_putnchar(' ', (i = file->nb - 1), 1);
 	(file->convert == l) ?
-	ft_putwchar_fd(va_arg(*ap, wchar_t), 1) :
+	ft_putwchar_fd(wc = va_arg(*ap, wchar_t), 1) :
 	ft_putchar_fd(va_arg(*ap, int), 1);
 	if (ft_strchr(file->flags, '-') && file->nb)
 		ft_putnchar(' ', (i = file->nb - 1), 1);
-	file->ct += i + 1;
+	file->ct += (file->convert == l) ? i + ft_wcharlen(wc) : i + 1;
 	return (file->ct);
 }
 
@@ -21,10 +40,9 @@ int	ft_print_perc(va_list *ap, t_file *file)
 	size_t		i;
 
 	i = 0;
+	(void)ap;
 	if (!ft_strchr(file->flags, '-') && file->nb)
 		ft_putnchar(' ', (i = file->nb - 1), 1);
-	(file->convert == l) ?
-	ft_putwchar_fd(va_arg(*ap, wchar_t), 1) :
 	ft_putchar_fd('%', 1);
 	if (ft_strchr(file->flags, '-') && file->nb)
 		ft_putnchar(' ', (i = file->nb - 1), 1);
