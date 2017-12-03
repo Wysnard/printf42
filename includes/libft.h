@@ -6,7 +6,7 @@
 /*   By: vlay <vlay@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/10 17:06:53 by vlay              #+#    #+#             */
-/*   Updated: 2017/12/02 21:25:59 by vlay             ###   ########.fr       */
+/*   Updated: 2017/12/03 13:09:11 by vlay             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include <stdarg.h>
 # include <wchar.h>
 # include <stdint.h>
+# include <limits.h>
 # include "printf.h"
 
 typedef struct		s_list

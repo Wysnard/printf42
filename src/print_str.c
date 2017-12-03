@@ -7,13 +7,12 @@ int	ft_print_wstr(va_list *ap, t_file *file)
 	size_t		i;
 
 	i = 0;
-	(void)file;
-	wstr = va_arg(*ap, wchar_t *);
-	if (file->precision >= 0)
-		printed = (size_t)file->precision > ft_wcslen(wstr) ? ft_wcsdup(wstr)
-		: ft_wcsndup(wstr, file->precision);
+	if ((wstr = va_arg(*ap, wchar_t *)))
+		printed = (file->precision >= 0) ?
+		ft_wcsndup(wstr, file->precision) : ft_wcsdup(wstr);
 	else
-		printed = ft_wcsdup(wstr);
+		printed = (file->precision >= 0) ?
+		ft_wcsndup(L"(null)", file->precision) : ft_wcsdup(L"(null)");
 	i = (file->nb > ft_wcslen(printed)) ? file->nb - ft_wcslen(printed) : 0;
 	if (!ft_strchr(file->flags, '-') && i)
 		ft_putnchar(' ', i, 1);
@@ -33,12 +32,12 @@ int	ft_print_str(va_list *ap, t_file *file)
 	size_t		i;
 
 	i = 0;
-	str = va_arg(*ap, const char *);
-	if (file->precision >= 0)
-		printed = (size_t)file->precision > ft_strlen(str) ? ft_strdup(str)
-		: ft_strndup(str, file->precision);
+	if ((str = va_arg(*ap, const char *)))
+		printed = (file->precision >= 0) ?
+		ft_strndup(str, file->precision) : ft_strdup(str);
 	else
-		printed = ft_strdup(str);
+		printed = (file->precision >= 0) ?
+		ft_strndup("(null)", file->precision) : ft_strdup("(null)");
 	i = (file->nb > ft_strlen(printed)) ? file->nb - ft_strlen(printed) : 0;
 	if (!ft_strchr(file->flags, '-') && i)
 		ft_putnchar(' ', i, 1);

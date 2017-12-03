@@ -30,13 +30,16 @@ int	ft_print_int(va_list *ap, t_file *file)
 
 	i = 0;
 	str = ft_imtoa_base((nbr = ft_get_type_int(ap, file)), "0123456789");
-	ft_nbprec(&str, file->precision - ft_intlen(nbr, 10));
+	if (file->precision == 0 && nbr == 0)
+		str[0] = '\0';
+	else
+		ft_nbprec(&str, file->precision - ft_intlen(nbr, 10));
 	if (ft_strchr(file->flags, '+') && nbr >= 0)
 		str = ft_strjoinfree(ft_strdup("+"), str);
 	else if (ft_strchr(file->flags, ' ') && nbr >= 0)
 		str = ft_strjoinfree(ft_strdup(" "), str);
 	i = (file->nb > ft_strlen(str)) ? file->nb - ft_strlen(str) : 0;
-	if (ft_strchr(file->flags, '0'))
+	if (ft_strchr(file->flags, '0') && !ft_strchr(file->flags, '-'))
 		(file->precision >= 0) ?
 		ft_putnchar(' ', i - file->nb, 1) : ft_putzero(&str, &i, "", file);
 	if (!ft_strchr(file->flags, '-') && i)

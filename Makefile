@@ -45,7 +45,6 @@ OBJ_PATH = obj/
 SRC_FILE = printf.c \
 						init.c \
 						process.c \
-						operateur.c \
 						print_char.c \
 						print_str.c \
 						print_int.c \

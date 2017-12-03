@@ -4,7 +4,7 @@
 
 typedef	struct	s_file
 {
-	size_t	ct;
+	int	ct;
 	char	flags[20];
 	uintmax_t	nb;
 	intmax_t precision;

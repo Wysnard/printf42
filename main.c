@@ -9,9 +9,10 @@ int	main()
   //
 	// cp = NULL;
 	// cp = ft_wcsdup(texte);
-	ft_putnbr(ft_printf("%#llx|\n", 9223372036854775807));
+	ft_putnbr(ft_printf("%.2s %10s", NULL, "string"));
 	ft_putchar('\n');
-	ft_putnbr(printf("%#llx|\n", 9223372036854775807));
+	ft_putnbr(printf("%.2s %10s", NULL, "string"));
+	ft_putchar('\n');
 	// ft_putstr("\nWSC = ");
 	// ft_putnbr(ft_wcslen(texte));
 	// ft_putchar('\n');

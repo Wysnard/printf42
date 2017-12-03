@@ -45,7 +45,7 @@ int	ft_print_octal(va_list *ap, t_file *file)
 	ft_putstr_fd(str, 1);
 	if (ft_strchr(file->flags, '-') && i)
 		ft_putnchar(' ', i, 1);
-	file->ct = ft_strlen(str) + i;
+	file->ct += ft_strlen(str) + i;
 	free(str);
 	return (1);
 }

@@ -1,4 +1,5 @@
 #include "printf.h"
+#include <stdio.h>
 
 void	ft_conversion(char **start, t_file *file, va_list *ap)
 {
@@ -29,7 +30,10 @@ void	ft_conversion(char **start, t_file *file, va_list *ap)
 int	ft_process(char **start, t_file *file, va_list *ap)
 {
 	ft_init_flags(file);
+	// printf("point de depart = %s|\n", *start);
 	ft_flags(start, file);
+	// printf("Arrivee = %c|\n", **start);
 	ft_conversion(start, file, ap);
+	// printf("Print = %c|\n", **start);
 	return (1);
 }

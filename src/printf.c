@@ -15,7 +15,8 @@ int	ft_printf(const char *arg1, ...)
 	{
 		if ((pct = ft_strchr(start, '%')))
 		{
-			write(1, start, (file.ct = pct - start));
+			write(1, start, pct - start);
+			file.ct += pct - start;
 			start = pct + 1;
 			ft_process(&start, &file, &ap);
 		}
