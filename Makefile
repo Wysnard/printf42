@@ -4,7 +4,7 @@ CC = gcc
 
 CFLAGS = -Werror -Wall -Wextra -Iincludes
 
-SRC_PATH = src/
+SRC_PATH = srcs/
 
 LIBFT_PATH = libft/
 
