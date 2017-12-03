@@ -1,5 +1,6 @@
 #include "includes/libft.h"
 #include <stdio.h>
+#include <limits.h>
 
 int	main()
 {
@@ -9,9 +10,9 @@ int	main()
   //
 	// cp = NULL;
 	// cp = ft_wcsdup(texte);
-	ft_putnbr(ft_printf("%.2s %10s", NULL, "string"));
+	ft_putnbr(ft_printf("%lld\n", -9223372036854775808ull));
 	ft_putchar('\n');
-	ft_putnbr(printf("%.2s %10s", NULL, "string"));
+	printf("%lld\n", -9223372036854775808ull);
 	ft_putchar('\n');
 	// ft_putstr("\nWSC = ");
 	// ft_putnbr(ft_wcslen(texte));

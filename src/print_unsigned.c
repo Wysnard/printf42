@@ -43,3 +43,9 @@ int	ft_print_unsigned(va_list *ap, t_file *file)
 	free(str);
 	return (1);
 }
+
+int	ft_print_U(va_list *ap, t_file *file)
+{
+	file->convert = l;
+	return (ft_print_unsigned(ap, file));
+}

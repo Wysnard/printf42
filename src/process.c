@@ -3,6 +3,12 @@
 
 void	ft_conversion(char **start, t_file *file, va_list *ap)
 {
+	if (**start == 'U' || **start == 'C' || **start == 'S' || **start == 'D'
+	|| **start == 'O')
+	{
+		file->convert = l;
+		**start = ft_tolower(**start);
+	}
 	if (**start == 'c')
 		ft_print_char(ap, file);
 	else if (**start == 's')

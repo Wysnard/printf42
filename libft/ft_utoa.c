@@ -6,7 +6,7 @@
 /*   By: vlay <vlay@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/10 16:08:59 by vlay              #+#    #+#             */
-/*   Updated: 2017/12/03 13:50:05 by vlay             ###   ########.fr       */
+/*   Updated: 2017/12/03 14:24:19 by vlay             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ char		*ft_utoa(uintmax_t nbr, char const *base_chr)
 		return (NULL);
 	i = 0;
 	if (nbr == 0)
-		buf[i++] = '0';
+		buf[i++] = base_chr[nbr % base];
 	while (nbr > 0)
 	{
 		buf[i++] = base_chr[nbr % base];

@@ -1,4 +1,5 @@
 #include "printf.h"
+#include <limits.h>
 
 static intmax_t	ft_get_type_int(va_list *ap, t_file *file)
 {
@@ -29,19 +30,25 @@ int	ft_print_int(va_list *ap, t_file *file)
 	size_t	i;
 
 	i = 0;
-	str = ft_imtoa_base((nbr = ft_get_type_int(ap, file)), "0123456789");
+	str = ((unsigned long long)(nbr = ft_get_type_int(ap, file))
+	== -9223372036854775808ull) ?
+	ft_strdup("-9223372036854775808") : ft_imtoa_base(nbr, "0123456789");
 	if (file->precision == 0 && nbr == 0)
 		str[0] = '\0';
 	else
-		ft_nbprec(&str, file->precision - ft_intlen(nbr, 10));
+		ft_nbprec(&str, ((nbr < 0) ? file->precision + 1 : file->precision) - ft_strlen(str));
 	if (ft_strchr(file->flags, '+') && nbr >= 0)
 		str = ft_strjoinfree(ft_strdup("+"), str);
 	else if (ft_strchr(file->flags, ' ') && nbr >= 0)
 		str = ft_strjoinfree(ft_strdup(" "), str);
 	i = (file->nb > ft_strlen(str)) ? file->nb - ft_strlen(str) : 0;
-	if (ft_strchr(file->flags, '0') && !ft_strchr(file->flags, '-'))
-		(file->precision >= 0) ?
-		ft_putnchar(' ', i - file->nb, 1) : ft_putzero(&str, &i, "", file);
+	if (ft_strchr(file->flags, '0'))
+	{
+		if (file->precision >= 0)
+			ft_putnchar(' ', i - file->nb, 1);
+		else if (!ft_strchr(file->flags, '-'))
+			ft_putzero(&str, &i, "", file);
+	}
 	if (!ft_strchr(file->flags, '-') && i)
 		ft_putnchar(' ', i, 1);
 	ft_putstr_fd(str, 1);
