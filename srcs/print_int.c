@@ -49,10 +49,9 @@ int	ft_print_int(va_list *ap, t_file *file)
 		else if (!ft_strchr(file->flags, '-'))
 			ft_putzero(&str, &i, "", file);
 	}
-	if (!ft_strchr(file->flags, '-') && i)
-		ft_putnchar(' ', i, 1);
-	else if (i)
-		ft_putspace(&str, &i);
+	if (i)
+		(!ft_strchr(file->flags, '-')) ?
+		ft_putspace(&str, &i, 'f') : ft_putspace(&str, &i, 'b');
 	ft_putstr_fd(str, 1);
 	file->ct += ft_strlen(str) + i;
 	free(str);

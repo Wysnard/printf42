@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   flags.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vlay <marvin@42.fr>                        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/12/04 18:14:43 by vlay              #+#    #+#             */
+/*   Updated: 2017/12/04 18:16:13 by vlay             ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "printf.h"
 #include <stdio.h>
 
@@ -19,7 +31,7 @@ static	void	ft_convert(char *start, t_file *file)
 	// 	file->convert = none;
 }
 
-void	ft_flags(char **start, t_file *file)
+void			ft_flags(char **start, t_file *file)
 {
 	char	flags[10];
 	char	f[2];

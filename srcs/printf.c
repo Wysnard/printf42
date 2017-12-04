@@ -1,4 +1,5 @@
 #include "printf.h"
+#include <stdio.h>
 
 int	ft_printf(const char *arg1, ...)
 {
@@ -24,6 +25,7 @@ int	ft_printf(const char *arg1, ...)
 		{
 			ft_putstr_fd(start, 1);
 			file.ct += ft_strlen(start);
+			// printf("ct = %d | start = %c|\n", file.ct, *start);
 			break ;
 		}
 	}

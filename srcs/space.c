@@ -15,7 +15,7 @@ void	ft_putwspace(wchar_t **str, size_t *i)
 	*i = 0;
 }
 
-void	ft_putspace(char **str, size_t *i)
+void	ft_putspace(char **str, size_t *i, int mode)
 {
 	char	*space;
 
@@ -23,6 +23,7 @@ void	ft_putspace(char **str, size_t *i)
 		exit(EXIT_FAILURE);
 	ft_memset(space, ' ', *i);
 	space[*i] = '\0';
-	*str = ft_strjoinfree(*str, space);
+	*str = (mode == 'b') ?
+	ft_strjoinfree(*str, space) : ft_strjoinfree(space, *str);
 	*i = 0;
 }

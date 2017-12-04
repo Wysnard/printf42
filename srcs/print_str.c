@@ -26,7 +26,7 @@ int	ft_print_wstr(va_list *ap, t_file *file)
 	i = (file->nb > ft_wcslen(printed)) ? file->nb - ft_wcslen(printed) : 0;
 	if (!ft_strchr(file->flags, '-') && i)
 		ft_putnchar(' ', i, 1);
-	if (ft_strchr(file->flags, '-') && i)
+	else if (i)
 		ft_putwspace(&printed, &i);
 	ft_putwstr_fd(printed, 1);
 	file->ct += ft_wstrlen(printed) + i;
@@ -48,10 +48,9 @@ int	ft_print_str(va_list *ap, t_file *file)
 		printed = (file->precision >= 0) ?
 		ft_strndup("(null)", file->precision) : ft_strdup("(null)");
 	i = (file->nb > ft_strlen(printed)) ? file->nb - ft_strlen(printed) : 0;
-	if (!ft_strchr(file->flags, '-') && i)
-		ft_putnchar(' ', i, 1);
-	if (ft_strchr(file->flags, '-') && i)
-		ft_putspace(&printed, &i);
+	if (i)
+		(!ft_strchr(file->flags, '-')) ?
+		ft_putspace(&printed, &i, 'f') : ft_putspace(&printed, &i, 'b');
 	ft_putstr_fd(printed, 1);
 	file->ct += ft_strlen(printed) + i;
 	free(printed);

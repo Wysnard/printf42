@@ -34,18 +34,11 @@ int	ft_print_unsigned(va_list *ap, t_file *file)
 	if (ft_strchr(file->flags, '0'))
 		(file->precision >= 0) ?
 		ft_putnchar(' ', i - file->nb, 1) : ft_putzero(&str, &i, "", file);
-	if (!ft_strchr(file->flags, '-') && i)
-		ft_putnchar(' ', i, 1);
-	else if (i)
-		ft_putspace(&str, &i);
+	if (i)
+		(!ft_strchr(file->flags, '-')) ?
+		ft_putspace(&str, &i, 'f') : ft_putspace(&str, &i, 'b');
 	ft_putstr_fd(str, 1);
 	file->ct += ft_strlen(str) + i;
 	free(str);
 	return (1);
-}
-
-int	ft_print_U(va_list *ap, t_file *file)
-{
-	file->convert = l;
-	return (ft_print_unsigned(ap, file));
 }

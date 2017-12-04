@@ -10,9 +10,9 @@ int	main()
   //
 	// cp = NULL;
 	// cp = ft_wcsdup(texte);
-	ft_putnbr(ft_printf("%S\n", texte));
+	ft_putnbr(ft_printf("%s %d %x %% %S\n", "bonjour ", 42, 42, L"لحم خنزير"));
 	ft_putchar('\n');
-	ft_putnbr(printf("%S\n", texte));
+	ft_putnbr(printf("%s %d %x %% %s\n", "bonjour ", 42, 42, "لحم خنزير"));
 	ft_putchar('\n');
 	// ft_putstr("\nWSC = ");
 	// ft_putnbr(ft_wcslen(texte));

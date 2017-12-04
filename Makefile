@@ -52,6 +52,7 @@ SRC_FILE = printf.c \
 						print_unsigned.c \
 						print_hexa.c \
 						print_octal.c \
+						print_bits.c \
 						flags.c \
 						zero.c \
 						nbprec.c \

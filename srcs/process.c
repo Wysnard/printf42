@@ -3,8 +3,7 @@
 
 void	ft_conversion(char **start, t_file *file, va_list *ap)
 {
-	if (**start == 'C' || **start == 'S' || **start == 'D'
-	|| **start == 'U' || **start == 'O')
+	if (ft_isupper(**start) && **start != 'X')
 		file->convert = l;
 	if (**start == 'c' || **start == 'C')
 		ft_print_char(ap, file);
@@ -23,6 +22,8 @@ void	ft_conversion(char **start, t_file *file, va_list *ap)
 		ft_print_octal(ap, file);
 	else if (**start == 'p')
 		ft_print_pointer(ap, file);
+	else if (**start == 'b')
+		ft_print_b(ap, file);
 	else if (**start == '%')
 		ft_print_perc(ap, file);
 	else

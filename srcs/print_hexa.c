@@ -12,23 +12,17 @@ int	ft_print_hexa(va_list *ap, t_file *file)
 		str[0] = '\0';
 	else
 		ft_nbprec(&str, file->precision - (len = ft_strlen(str)));
-	if (ft_strchr(file->flags, '#') && nbr > 0)
-	{
-		str = ft_strjoinfree(ft_strdup("0x"), str);
+	if (ft_strchr(file->flags, '#') && nbr > 0
+	&& (str = ft_strjoinfree(ft_strdup("0x"), str)))
 		str[len + 2] = '\0';
-	}
 	i = (file->nb > ft_strlen(str)) ? file->nb - ft_strlen(str) : 0;
-	if (ft_strchr(file->flags, '0'))
-	{
-		if (file->precision >= 0)
-			ft_putnchar(' ', i - file->nb, 1);
-		else if (!ft_strchr(file->flags, '-'))
-			ft_putzero(&str, &i, "0x", file);
-	}
-	if (!ft_strchr(file->flags, '-') && i)
-		ft_putnchar(' ', i, 1);
-	else if (i)
-		ft_putspace(&str, &i);
+	if (ft_strchr(file->flags, '0') && file->precision >= 0)
+		ft_putnchar(' ', i - file->nb, 1);
+	else if (ft_strchr(file->flags, '0') && !ft_strchr(file->flags, '-'))
+		ft_putzero(&str, &i, "0x", file);
+	if (i)
+		(!ft_strchr(file->flags, '-')) ?
+		ft_putspace(&str, &i, 'f') : ft_putspace(&str, &i, 'b');
 	ft_putstr_fd(str, 1);
 	file->ct += ft_strlen(str) + i;
 	free(str);
@@ -47,23 +41,17 @@ int	ft_print_Hexa(va_list *ap, t_file *file)
 		str[0] = '\0';
 	else
 		ft_nbprec(&str, file->precision - (len = ft_strlen(str)));
-	if (ft_strchr(file->flags, '#') && nbr > 0)
-	{
-		str = ft_strjoinfree(ft_strdup("0X"), str);
+	if (ft_strchr(file->flags, '#') && nbr > 0
+	&& (str = ft_strjoinfree(ft_strdup("0X"), str)))
 		str[len + 2] = '\0';
-	}
 	i = (file->nb > ft_strlen(str)) ? file->nb - ft_strlen(str) : 0;
-	if (ft_strchr(file->flags, '0'))
-	{
-		if (file->precision >= 0)
-			ft_putnchar(' ', i - file->nb, 1);
-		else if (!ft_strchr(file->flags, '-'))
-			ft_putzero(&str, &i, "0x", file);
-	}
-	if (!ft_strchr(file->flags, '-') && i)
-		ft_putnchar(' ', i, 1);
-	else if (i)
-		ft_putspace(&str, &i);
+	if (ft_strchr(file->flags, '0') && file->precision >= 0)
+		ft_putnchar(' ', i - file->nb, 1);
+	else if (ft_strchr(file->flags, '0') && !ft_strchr(file->flags, '-'))
+		ft_putzero(&str, &i, "0x", file);
+	if (i)
+		(!ft_strchr(file->flags, '-')) ?
+		ft_putspace(&str, &i, 'f') : ft_putspace(&str, &i, 'b');
 	ft_putstr_fd(str, 1);
 	file->ct += ft_strlen(str) + i;
 	free(str);
@@ -86,10 +74,9 @@ int	ft_print_pointer(va_list *ap, t_file *file)
 	if (ft_strchr(file->flags, '0'))
 		(file->precision >= 0) ?
 		ft_putnchar(' ', i - file->nb, 1) : ft_putzero(&str, &i, "0x", file);
-	if (!ft_strchr(file->flags, '-') && i)
-		ft_putnchar(' ', i, 1);
-	else if (i)
-		ft_putspace(&str, &i);
+	if (i)
+		(!ft_strchr(file->flags, '-')) ?
+		ft_putspace(&str, &i, 'f') : ft_putspace(&str, &i, 'b');
 	ft_putstr_fd(str, 1);
 	file->ct += ft_strlen(str) + i;
 	free(str);
