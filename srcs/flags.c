@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   flags.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vlay <marvin@42.fr>                        +#+  +:+       +#+        */
+/*   By: vlay <vlay@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/04 18:14:43 by vlay              #+#    #+#             */
-/*   Updated: 2017/12/04 18:16:13 by vlay             ###   ########.fr       */
+/*   Updated: 2017/12/04 19:19:24 by vlay             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,19 +27,15 @@ static	void	ft_convert(char *start, t_file *file)
 		file->convert = hh;
 	else if (*start == 'h')
 		file->convert = h;
-	// if (ft_strchr(flags, **start))
-	// 	file->convert = none;
 }
 
 void			ft_flags(char **start, t_file *file)
 {
-	char	flags[10];
 	char	f[2];
 
-	ft_strcpy(flags, "#0-+ ");
-	while (*start && **start && ft_strchr(flags, **start))
+	while (*start && **start && ft_strchr("#0-+ ", **start))
 	{
-		f[0] = *ft_strchr(flags, **start);
+		f[0] = *ft_strchr("#0-+ ", **start);
 		f[1] = '\0';
 		if (!ft_strchr(file->flags, f[0]))
 			ft_strcat(file->flags, f);
@@ -54,9 +50,7 @@ void			ft_flags(char **start, t_file *file)
 		while (ft_isdigit(**start))
 			(*start)++;
 	}
-	ft_strcpy(flags, "hljz");
 	ft_convert(*start, file);
-	while (ft_strchr(flags, **start))
+	while (ft_strchr("hljz", **start))
 		(*start)++;
-	// printf("flags = %s| nb = %ju | precision = %jd | convert = %d\n", file->flags, file->nb, file->precision, file->convert);
 }

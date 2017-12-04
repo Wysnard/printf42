@@ -34,7 +34,7 @@ int	ft_print_str(va_list *ap, t_file *file);
 int	ft_print_int(va_list *ap, t_file *file);
 int	ft_print_unsigned(va_list *ap, t_file *file);
 int	ft_print_hexa(va_list *ap, t_file *file);
-int	ft_print_Hexa(va_list *ap, t_file *file);
+int	ft_print_exa(va_list *ap, t_file *file);
 int	ft_print_octal(va_list *ap, t_file *file);
 int	ft_print_pointer(va_list *ap, t_file *file);
 int	ft_print_wstr(va_list *ap, t_file *file);

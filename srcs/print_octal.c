@@ -1,12 +1,23 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   print_octal.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vlay <vlay@student.42.fr>                  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/12/04 20:22:34 by vlay              #+#    #+#             */
+/*   Updated: 2017/12/04 20:23:49 by vlay             ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "printf.h"
 
 int	ft_print_octal(va_list *ap, t_file *file)
 {
-	char	*str;
-	size_t	i;
-	uintmax_t	nbr;
+	char		*str;
+	size_t		i;
 
-	str = ft_utoa((nbr = ft_get_type_u(ap, file)), "01234567");
+	str = ft_utoa(ft_get_type_u(ap, file), "01234567");
 	if (file->precision == 0)
 		str[0] = '\0';
 	else

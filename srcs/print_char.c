@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   print_char.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vlay <marvin@42.fr>                        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/12/04 18:26:18 by vlay              #+#    #+#             */
+/*   Updated: 2017/12/04 18:26:47 by vlay             ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "printf.h"
 
-size_t	ft_wcharlen(wchar_t	wc)
+size_t	ft_wcharlen(wchar_t wc)
 {
 	size_t	i;
 
@@ -18,7 +30,7 @@ size_t	ft_wcharlen(wchar_t	wc)
 	return (i);
 }
 
-int	ft_print_char(va_list *ap, t_file *file)
+int		ft_print_char(va_list *ap, t_file *file)
 {
 	size_t		i;
 	wchar_t		wc;
@@ -35,7 +47,7 @@ int	ft_print_char(va_list *ap, t_file *file)
 	return (file->ct);
 }
 
-int	ft_print_perc(va_list *ap, t_file *file)
+int		ft_print_perc(va_list *ap, t_file *file)
 {
 	size_t		i;
 
