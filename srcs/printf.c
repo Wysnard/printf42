@@ -6,11 +6,12 @@
 /*   By: vlay <vlay@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/04 20:27:02 by vlay              #+#    #+#             */
-/*   Updated: 2017/12/04 20:57:44 by vlay             ###   ########.fr       */
+/*   Updated: 2017/12/05 21:58:28 by vlay             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printf.h"
+#include <stdio.h>
 
 static	int	ft_condition(char *pct, va_list *ap, char **start, t_file *file)
 {

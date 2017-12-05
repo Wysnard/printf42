@@ -6,7 +6,7 @@
 /*   By: vlay <vlay@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/04 20:27:44 by vlay              #+#    #+#             */
-/*   Updated: 2017/12/04 20:31:22 by vlay             ###   ########.fr       */
+/*   Updated: 2017/12/05 22:13:05 by vlay             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,8 @@ int		ft_process(char **start, t_file *file, va_list *ap)
 	if (**start == '\0')
 		return (0);
 	ft_init_flags(file);
-	ft_flags(start, file);
+	if (!ft_flags(start, file, ap))
+		return (0);
 	ft_conversion(start, file, ap);
 	return (1);
 }

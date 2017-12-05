@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_dtoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vlay <marvin@42.fr>                        +#+  +:+       +#+        */
+/*   By: vlay <vlay@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/10 16:01:52 by vlay              #+#    #+#             */
-/*   Updated: 2017/11/10 16:02:59 by vlay             ###   ########.fr       */
+/*   Updated: 2017/12/05 22:32:52 by vlay             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,7 @@ char	*ft_dtoa(double nbr, size_t size)
 	buf = ft_itoa(nbr);
 	if (size > 0)
 		buf = ft_strjoin(buf, ".");
-	while (size > 0)
-	{
-		nbr = (nbr < 0) ? (nbr - (int)nbr) * -1 : nbr - (int)nbr;
-		nbr *= 10;
-		buf = ((size -= 1) == 0 && (nbr - (int)nbr) * 10 >= 5) ?
-			ft_strjoin(buf, ft_utoa(nbr + 1, "0123456789")) :
-			ft_strjoin(buf, ft_utoa(nbr, "0123456789"));
-	}
+	nbr *= 10 * size;
+	buf = ft_strjoinfree(buf, ft_utoa(nbr, "0123456789"));
 	return (buf);
 }

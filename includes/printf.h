@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   printf.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vlay <marvin@42.fr>                        +#+  +:+       +#+        */
+/*   By: vlay <vlay@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/04 21:24:45 by vlay              #+#    #+#             */
-/*   Updated: 2017/12/04 21:30:22 by vlay             ###   ########.fr       */
+/*   Updated: 2017/12/05 21:54:39 by vlay             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int				ft_printf(const char *arg1, ...);
 
 void			ft_init_flags(t_file *file);
 int				ft_process(char **start, t_file *file, va_list *ap);
-void			ft_flags(char **start, t_file *file);
+int			ft_flags(char **start, t_file *file, va_list *ap);
 void			ft_putzero(char **str, size_t *i, char *prefix, t_file *file);
 void			ft_nbprec(char **str, intmax_t i);
 void			ft_putspace(char **str, size_t *i, int mode);
