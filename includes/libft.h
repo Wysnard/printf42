@@ -6,7 +6,7 @@
 /*   By: vlay <vlay@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/10 17:06:53 by vlay              #+#    #+#             */
-/*   Updated: 2017/12/06 15:43:28 by vlay             ###   ########.fr       */
+/*   Updated: 2017/12/06 18:58:24 by vlay             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,9 @@
 # include <stdlib.h>
 # include <stdarg.h>
 # include <wchar.h>
-# include <stdint.h>
-# include <limits.h>
+// # include <stdint.h>
+// # include <limits.h>
+// # include <float.h>
 # include "printf.h"
 
 typedef struct		s_list
@@ -165,4 +166,5 @@ wchar_t				*ft_wcsndup(wchar_t	*wcs, size_t n);
 wchar_t				*ft_wcsjoinfree(wchar_t *w1, wchar_t *w2);
 char				*ft_strjoinpush(char *s1, char *s2);
 size_t				ft_strchri(char *str, int c);
+
 #endif

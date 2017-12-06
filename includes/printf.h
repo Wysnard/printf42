@@ -6,7 +6,7 @@
 /*   By: vlay <vlay@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/04 21:24:45 by vlay              #+#    #+#             */
-/*   Updated: 2017/12/06 15:54:12 by vlay             ###   ########.fr       */
+/*   Updated: 2017/12/06 17:08:36 by vlay             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@ int				ft_print_b(va_list *ap, t_file *file);
 int				ft_print_n(va_list *ap, t_file *file);
 
 uintmax_t		ft_get_type_u(va_list *ap, t_file *file);
+intmax_t		ft_get_type_int(va_list *ap, t_file *file);
 size_t			ft_wstrlen(wchar_t	*wstr);
 size_t			ft_wcharlen(wchar_t	wc);
 

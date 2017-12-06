@@ -6,7 +6,7 @@
 /*   By: vlay <vlay@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/04 18:14:43 by vlay              #+#    #+#             */
-/*   Updated: 2017/12/05 22:12:05 by vlay             ###   ########.fr       */
+/*   Updated: 2017/12/06 19:07:28 by vlay             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ static	void	ft_convert(char *start, t_file *file)
 		file->convert = h;
 }
 
-int			ft_flags(char **start, t_file *file, va_list *ap)
+int				ft_flags(char **start, t_file *file, va_list *ap)
 {
 	char	f[2];
 

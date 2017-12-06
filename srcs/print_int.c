@@ -6,14 +6,14 @@
 /*   By: vlay <vlay@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/04 20:19:29 by vlay              #+#    #+#             */
-/*   Updated: 2017/12/04 20:21:54 by vlay             ###   ########.fr       */
+/*   Updated: 2017/12/06 19:07:55 by vlay             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printf.h"
 #include <limits.h>
 
-static	intmax_t	ft_get_type_int(va_list *ap, t_file *file)
+intmax_t			ft_get_type_int(va_list *ap, t_file *file)
 {
 	intmax_t	nbr;
 
