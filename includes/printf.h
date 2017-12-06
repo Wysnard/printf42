@@ -6,13 +6,14 @@
 /*   By: vlay <vlay@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/04 21:24:45 by vlay              #+#    #+#             */
-/*   Updated: 2017/12/05 21:54:39 by vlay             ###   ########.fr       */
+/*   Updated: 2017/12/06 15:54:12 by vlay             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PRINTF_H
 # define PRINTF_H
 # include "libft.h"
+# define NBPRT	12
 
 typedef	struct	s_file
 {
@@ -53,6 +54,7 @@ int				ft_print_pointer(va_list *ap, t_file *file);
 int				ft_print_wstr(va_list *ap, t_file *file);
 int				ft_print_perc(va_list *ap, t_file *file);
 int				ft_print_b(va_list *ap, t_file *file);
+int				ft_print_n(va_list *ap, t_file *file);
 
 uintmax_t		ft_get_type_u(va_list *ap, t_file *file);
 size_t			ft_wstrlen(wchar_t	*wstr);

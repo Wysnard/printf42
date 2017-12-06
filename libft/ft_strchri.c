@@ -1,27 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_dtoa.c                                          :+:      :+:    :+:   */
+/*   ft_strchri.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vlay <vlay@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: vlay <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/10 16:01:52 by vlay              #+#    #+#             */
-/*   Updated: 2017/12/06 15:22:12 by vlay             ###   ########.fr       */
+/*   Created: 2017/12/06 15:42:01 by vlay              #+#    #+#             */
+/*   Updated: 2017/12/06 15:42:06 by vlay             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_dtoa(double nbr, size_t size)
+size_t	ft_strchri(char *str, int c)
 {
-	char	*buf;
+	size_t	i;
 
-	if (nbr == 0)
-		return (ft_strdup("0"));
-	buf = ft_itoa(nbr);
-	if (size > 0)
-		buf = ft_strjoin(buf, ".");
-	nbr *= 10.0 * size;
-	buf = ft_strjoinfree(buf, ft_imtoa_base(nbr, "0123456789"));
-	return (buf);
+	if (!str || !*str)
+		return (0);
+	if ((char)c == '\0')
+		return (ft_strlen(str));
+	i = 0;
+	while (str[i])
+	{
+		if (str[i] == (char)c)
+			return (i);
+		i += 1;
+	}
+	return (i);
 }
