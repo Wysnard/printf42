@@ -6,7 +6,7 @@
 /*   By: vlay <vlay@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/10 17:06:53 by vlay              #+#    #+#             */
-/*   Updated: 2017/12/03 21:59:35 by vlay             ###   ########.fr       */
+/*   Updated: 2017/12/06 18:58:24 by vlay             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,9 @@
 # include <stdlib.h>
 # include <stdarg.h>
 # include <wchar.h>
-# include <stdint.h>
-# include <limits.h>
+// # include <stdint.h>
+// # include <limits.h>
+// # include <float.h>
 # include "printf.h"
 
 typedef struct		s_list
@@ -148,7 +149,7 @@ void				ft_swap(void **s1, void **s2);
 size_t				ft_sqr(int	nb);
 char				*ft_imtoa_base(intmax_t nbr, char *base_to);
 char				*ft_strnrchr(const char *s, int c, size_t n);
-intmax_t		ft_atoim(const char *nptr);
+intmax_t			ft_atoim(const char *nptr);
 char				*ft_strpbrk(const char *s, const char *accept);
 void				ft_putnchar(char c, int n, int fd);
 char				*ft_strjoinfree(char *s1, char *s2);
@@ -156,12 +157,14 @@ void				ft_putwchar_fd(wchar_t chr, int fd);
 void				ft_putwchar(wchar_t chr);
 void				ft_putwstr_fd(wchar_t *wstr, int fd);
 void				ft_putwstr(wchar_t *wstr);
-size_t			ft_wcslen(wchar_t	*wstr);
-wchar_t			*ft_wcscpy(wchar_t *dest, const wchar_t *src);
-wchar_t 		*ft_wcsncpy(wchar_t *dest, const wchar_t *src, size_t n);
-wchar_t			*ft_wcsnew(size_t len);
-wchar_t			*ft_wcsdup(wchar_t	*wcs);
-wchar_t			*ft_wcsndup(wchar_t	*wcs, size_t n);
-wchar_t			*ft_wcsjoinfree(wchar_t *w1, wchar_t *w2);
+size_t				ft_wcslen(wchar_t	*wstr);
+wchar_t				*ft_wcscpy(wchar_t *dest, const wchar_t *src);
+wchar_t				*ft_wcsncpy(wchar_t *dest, const wchar_t *src, size_t n);
+wchar_t				*ft_wcsnew(size_t len);
+wchar_t				*ft_wcsdup(wchar_t	*wcs);
+wchar_t				*ft_wcsndup(wchar_t	*wcs, size_t n);
+wchar_t				*ft_wcsjoinfree(wchar_t *w1, wchar_t *w2);
+char				*ft_strjoinpush(char *s1, char *s2);
+size_t				ft_strchri(char *str, int c);
 
 #endif

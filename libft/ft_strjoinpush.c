@@ -1,27 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putwstr.c                                       :+:      :+:    :+:   */
+/*   ft_strjoinpush.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vlay <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/04 21:07:47 by vlay              #+#    #+#             */
-/*   Updated: 2017/12/04 21:07:51 by vlay             ###   ########.fr       */
+/*   Created: 2017/12/05 22:22:43 by vlay              #+#    #+#             */
+/*   Updated: 2017/12/05 22:22:44 by vlay             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putwstr_fd(wchar_t *wstr, int fd)
+char	*ft_strjoinpush(char *s1, char *s2)
 {
-	size_t	i;
+	char	*str;
 
-	i = 0;
-	while (wstr[i])
-		ft_putwchar_fd(wstr[i++], fd);
-}
-
-void	ft_putwstr(wchar_t *wstr)
-{
-	ft_putwstr_fd(wstr, 1);
+	if (!(str = ft_strjoin(s1, s2)))
+		return (NULL);
+	if (s2)
+		free(s2);
+	return (str);
 }

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   print_unsigned.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vlay <vlay@student.42.fr>                  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/12/04 20:26:00 by vlay              #+#    #+#             */
+/*   Updated: 2017/12/04 20:26:41 by vlay             ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "printf.h"
 
 uintmax_t	ft_get_type_u(va_list *ap, t_file *file)
@@ -22,13 +34,12 @@ uintmax_t	ft_get_type_u(va_list *ap, t_file *file)
 	return (nbr);
 }
 
-int	ft_print_unsigned(va_list *ap, t_file *file)
+int			ft_print_unsigned(va_list *ap, t_file *file)
 {
-	char	*str;
-	size_t	i;
-	uintmax_t	nbr;
+	char		*str;
+	size_t		i;
 
-	str = ft_utoa((nbr = ft_get_type_u(ap, file)), "0123456789");
+	str = ft_utoa(ft_get_type_u(ap, file), "0123456789");
 	ft_nbprec(&str, file->precision - ft_strlen(str));
 	i = (file->nb > ft_strlen(str)) ? file->nb - ft_strlen(str) : 0;
 	if (ft_strchr(file->flags, '0'))

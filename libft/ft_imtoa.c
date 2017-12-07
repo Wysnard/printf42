@@ -6,13 +6,11 @@
 /*   By: vlay <vlay@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/10 16:03:05 by vlay              #+#    #+#             */
-/*   Updated: 2017/12/03 18:03:18 by vlay             ###   ########.fr       */
+/*   Updated: 2017/12/04 21:06:31 by vlay             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
-#include <limits.h>
 
 static	int	ft_ct(intmax_t n, size_t base)
 {
@@ -53,9 +51,3 @@ char		*ft_imtoa_base(intmax_t nbr, char *base_to)
 	str[ct] = '\0';
 	return (str);
 }
-
-// char		*ft_imtoa(intmax_t nbr)
-// {
-// 	return ((nbr == -9223372036854775808) ?
-// 	ft_strdup("-9223372036854775808") : ft_imtoa_base(nbr, "0123456789"));
-// }

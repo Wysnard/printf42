@@ -6,7 +6,7 @@
 /*   By: vlay <vlay@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/10 15:49:41 by vlay              #+#    #+#             */
-/*   Updated: 2017/11/29 16:12:10 by vlay             ###   ########.fr       */
+/*   Updated: 2017/12/04 21:07:04 by vlay             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 intmax_t	ft_atoim(const char *nptr)
 {
-	size_t	i;
+	size_t		i;
 	intmax_t	nb;
 	intmax_t	sign;
 

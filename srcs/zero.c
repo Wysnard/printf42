@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   zero.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vlay <vlay@student.42.fr>                  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/12/04 20:32:41 by vlay              #+#    #+#             */
+/*   Updated: 2017/12/04 20:40:52 by vlay             ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "printf.h"
 
 void	ft_putzero(char **str, size_t *i, char *prefix, t_file *file)
@@ -8,15 +20,13 @@ void	ft_putzero(char **str, size_t *i, char *prefix, t_file *file)
 
 	if (!(zero = ft_strnew(*i)))
 		exit(EXIT_FAILURE);
-	ft_memset(zero, '0', *i);
+	ft_memset((tmp = zero), '0', *i);
 	zero[*i] = '\0';
-	tmp = zero;
 	if (ft_strchr(file->flags, '0') && ft_strnequ(*str, prefix, 2))
 	{
-		ft_strcpy(save, prefix);
 		(ft_isdigit((*str)[1])) ?
 		ft_strcpy(*str, &(*str)[1]) : ft_strcpy(*str, &(*str)[2]);
-		zero = ft_strjoin(save, tmp);
+		zero = ft_strjoin(ft_strcpy(save, prefix), tmp);
 		free(tmp);
 	}
 	else if (!ft_isdigit(**str))

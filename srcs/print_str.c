@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   print_str.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vlay <vlay@student.42.fr>                  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/12/04 20:24:48 by vlay              #+#    #+#             */
+/*   Updated: 2017/12/04 20:31:48 by vlay             ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "printf.h"
 
-size_t	ft_wstrlen(wchar_t	*wstr)
+size_t	ft_wstrlen(wchar_t *wstr)
 {
 	size_t	i;
 
@@ -10,10 +22,10 @@ size_t	ft_wstrlen(wchar_t	*wstr)
 	return (i);
 }
 
-int	ft_print_wstr(va_list *ap, t_file *file)
+int		ft_print_wstr(va_list *ap, t_file *file)
 {
-	wchar_t	*wstr;
-	wchar_t	*printed;
+	wchar_t		*wstr;
+	wchar_t		*printed;
 	size_t		i;
 
 	i = 0;
@@ -34,13 +46,15 @@ int	ft_print_wstr(va_list *ap, t_file *file)
 	return (1);
 }
 
-int	ft_print_str(va_list *ap, t_file *file)
+int		ft_print_str(va_list *ap, t_file *file)
 {
 	const	char	*str;
-	char		*printed;
-	size_t		i;
+	char			*printed;
+	size_t			i;
 
 	i = 0;
+	if (file->convert == l)
+		return (ft_print_wstr(ap, file));
 	if ((str = va_arg(*ap, const char *)))
 		printed = (file->precision >= 0) ?
 		ft_strndup(str, file->precision) : ft_strdup(str);

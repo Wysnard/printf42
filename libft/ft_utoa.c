@@ -6,7 +6,7 @@
 /*   By: vlay <vlay@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/10 16:08:59 by vlay              #+#    #+#             */
-/*   Updated: 2017/12/03 14:24:19 by vlay             ###   ########.fr       */
+/*   Updated: 2017/12/04 21:10:09 by vlay             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ static	int	ft_count(unsigned int nbr, size_t base)
 char		*ft_utoa(uintmax_t nbr, char const *base_chr)
 {
 	char			*buf;
-	size_t				i;
+	size_t			i;
 	size_t			base;
 
 	base = ft_strlen(base_chr);
