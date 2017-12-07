@@ -39,7 +39,7 @@ LIBFT_FILE = ft_atoi.c ft_bzero.c ft_isalnum.c ft_isalpha.c \
 		ft_wcsnew.c ft_wcsdup.c ft_wcsndup.c \
 		ft_wcsjoinfree.c ft_strjoinpush.c ft_strchri.c
 
-LIBFT = $(LIBFT_FILE:%.c=$(LIBFT_PATH)%.c)
+LIBFT = $(LIBFT_FILE:%.c=$(SRC_PATH)$(LIBFT_PATH)%.c)
 
 OBJ_PATH = obj/
 
@@ -61,7 +61,7 @@ SRC_FILE = printf.c \
 
 SRC = $(SRC_FILE:%.c=$(SRC_PATH)%.c)
 
-OBJ = $(LIBFT:$(LIBFT_PATH)%.c=$(OBJ_PATH)%.o) $(SRC:$(SRC_PATH)%.c=$(OBJ_PATH)%.o)
+OBJ = $(LIBFT:$(SRC_PATH)$(LIBFT_PATH)%.c=$(OBJ_PATH)%.o) $(SRC:$(SRC_PATH)%.c=$(OBJ_PATH)%.o)
 
 all: $(NAME)
 
@@ -69,7 +69,7 @@ $(NAME): $(OBJ)
 	@ar rc $@ $^
 	@ranlib $@
 
-$(OBJ_PATH)%.o: $(LIBFT_PATH)%.c
+$(OBJ_PATH)%.o: $(SRC_PATH)$(LIBFT_PATH)%.c
 	@mkdir -p $(OBJ_PATH)
 	$(CC) $(CFLAGS) -o $@ -c $<
 
