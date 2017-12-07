@@ -6,7 +6,7 @@
 /*   By: vlay <vlay@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/04 20:22:34 by vlay              #+#    #+#             */
-/*   Updated: 2017/12/07 16:43:59 by vlay             ###   ########.fr       */
+/*   Updated: 2017/12/07 17:40:14 by vlay             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	ft_print_octal(va_list *ap, t_file *file)
 		str[0] = '\0';
 	else
 		ft_nbprec(&str, file->precision - ft_strlen(str));
-	if (ft_strchr(file->flags, '#') && nbr > 0)
+	if (ft_strchr(file->flags, '#') && *str != '0')
 		str = ft_strjoinfree(ft_strdup("0"), str);
 	i = (file->nb > ft_strlen(str)) ? file->nb - ft_strlen(str) : 0;
 	if (ft_strchr(file->flags, '0'))

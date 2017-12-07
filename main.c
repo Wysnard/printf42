@@ -14,9 +14,9 @@ int	main()
   //
 	// cp = NULL;
 	// cp = ft_wcsdup(texte);
-	ft_putnbr(ft_printf("%S\n", texte));
+	ft_putnbr(ft_printf("@moulitest: %#o %#.0o", 0, 0));
 	ft_putchar('\n');
-	ft_putnbr(printf("%S\n", texte));
+	ft_putnbr(printf("@moulitest: %#o %#.0o", 0, 0));
 	ft_putchar('\n');
 	// ft_putstr("\nWSC = ");
 	// ft_putnbr(ft_wcslen(texte));
