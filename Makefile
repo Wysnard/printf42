@@ -2,7 +2,7 @@ NAME = libftprintf.a
 
 CC = gcc
 
-CFLAGS = -Werror -Wall -Wextra -Iincludes
+CFLAGS = -Werror -Wall -Wextra -I.
 
 SRC_PATH = srcs/
 
